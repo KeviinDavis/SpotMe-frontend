@@ -1,0 +1,126 @@
+/* login.css */
+
+/* General Page Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e6e6e6; /* Light gray background */
+}
+
+/* Top Banner */
+.login-banner {
+  width: 100%;
+  background-color: #d3d3d3; /* Light gray color */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fix the banner to the top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it sits above other elements */
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.banner-right {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Add spacing between "Hello, Guest!" and the buttons */
+}
+
+.nav-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100px; /* Ensure buttons are uniform in width */
+}
+
+.nav-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.greeting {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555; /* Subtle dark gray color */
+}
+
+
+/* Login Form Container */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 80px; /* Add padding to compensate for fixed banner height */
+  box-sizing: border-box; /* Ensure padding works properly */
+}
+
+.login-form-container {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-form-container h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form label {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.login-form input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #333;
+}
+
+/* Sign-Up Link */
+.signup-link {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
