@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import CreateWorkout from './pages/createWorkout';
+import Landing from './pages/landing';
+import { AuthContext } from './authcontext';
 import './dashboard.css';
 
-function App() {
-  // Define state for workouts
-  const [workouts, setWorkouts] = useState([]);
-
-  // Define the addWorkout function
-  const addWorkout = (newWorkout) => {
-    setWorkouts([...workouts, { ...newWorkout, id: workouts.length + 1 }]);
-  };
+const App = () => {
+  const { user } = useContext(AuthContext);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard workouts={workouts} />} />
-        <Route path="/workouts/new" element={<CreateWorkout addWorkout={addWorkout} />} />
-        <Route path="*" element={<div>404 - Page Not Found</div>} />
-      </Routes>
-    </Router>
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={user ? <Dashboard /> : <Landing />} />
+      <Route path="/login" element={!user ? <Login /> : <Dashboard />} />
+      <Route path="/signup" element={!user ? <Signup /> : <Dashboard />} />
+
+      {/* Protected Routes */}
+      {user && (
+        <>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/workouts/new" element={<CreateWorkout />} />
+        </>
+      )}
+
+      {/* Fallback */}
+      <Route path="*" element={<div>404 - Page Not Found</div>} />
+    </Routes>
   );
-}
+};
 
 export default App;

@@ -1,10 +1,47 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
+/* Top Banner */
+.dashboard-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d3d3d3;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.banner-right {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+/* Centered Landing Page Styles */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 60px); /* Full height minus the banner height */
+  padding: 20px;
+  box-sizing: border-box;
+}

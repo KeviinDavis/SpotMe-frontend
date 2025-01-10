@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
-import '../dashboard.css';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../authcontext';
+import '../dashboard.css';
 
 function Dashboard() {
+  const { user, workouts, deleteWorkout, updateWorkout, signout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Mock user data
-  const username = 'JohnDoe';
+  const [editingWorkoutId, setEditingWorkoutId] = useState(null);
+  const [editFormData, setEditFormData] = useState({ title: '', date: '' });
 
-  // Mock workout data
-  const [workouts, setWorkouts] = useState([
-    { id: 1, title: 'Leg Day', date: '2025-01-01' },
-    { id: 2, title: 'Cardio', date: '2025-01-03' },
-  ]);
-
-  // Delete a workout
-  const handleDelete = (id) => {
-    const filteredWorkouts = workouts.filter((workout) => workout.id !== id);
-    setWorkouts(filteredWorkouts);
+  const handleEditClick = (workout) => {
+    setEditingWorkoutId(workout._id);
+    setEditFormData({ title: workout.title, date: workout.date });
   };
 
-  const addWorkout = (newWorkout) => {
-    setWorkouts([...workouts, { ...newWorkout, id: workouts.length + 1 }]);
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditFormData({ ...editFormData, [name]: value });
   };
-  
+
+  const handleSaveClick = async () => {
+    try {
+      await updateWorkout(editingWorkoutId, editFormData); // Call updateWorkout from context
+      setEditingWorkoutId(null); // Exit edit mode
+    } catch (error) {
+      alert('Save failed.');
+    }
+  };
 
   return (
     <div className="dashboard-page">
@@ -31,8 +35,8 @@ function Dashboard() {
       <header className="dashboard-banner">
         <h1 className="app-name">SpotMe</h1>
         <div className="banner-right">
-          <span className="greeting">Hi, {username}!</span>
-          <button onClick={() => navigate('/login')} className="nav-button">
+          <span className="greeting">Hi, {user?.username || 'Guest'}!</span>
+          <button onClick={() => signout(() => navigate('/'))} className="nav-button">
             Log Out
           </button>
         </div>
@@ -41,7 +45,7 @@ function Dashboard() {
       {/* User Profile Section */}
       <section className="profile-section">
         <h2>Your Profile</h2>
-        <p>Username: {username}</p>
+        <p>Username: {user?.username}</p>
         <p>Workouts Completed: {workouts.length}</p>
       </section>
 
@@ -49,31 +53,56 @@ function Dashboard() {
       <section className="workout-list-section">
         <h2>Your Workouts</h2>
         <ul className="workout-list">
-          {workouts.length > 0 ? (
-            workouts.map((workout) => (
-              <li key={workout.id} className="workout-item">
-                <p>
-                  <strong>{workout.title}</strong> - {workout.date}
-                </p>
-                <div>
-                  <button
-                    className="edit-button"
-                    onClick={() => navigate(`/workouts/${workout.id}/edit`)}
-                  >
-                    Edit
+          {workouts.map((workout) => (
+            <li key={workout._id} className="workout-item">
+              {editingWorkoutId === workout._id ? (
+                <>
+                  <input
+                    type="text"
+                    name="title"
+                    value={editFormData.title}
+                    onChange={handleEditChange}
+                    placeholder="Workout Title"
+                  />
+                  <input
+                    type="date"
+                    name="date"
+                    value={editFormData.date}
+                    onChange={handleEditChange}
+                  />
+                  <button className="save-button" onClick={handleSaveClick}>
+                    Save
                   </button>
                   <button
-                    className="delete-button"
-                    onClick={() => handleDelete(workout.id)}
+                    className="cancel-button"
+                    onClick={() => setEditingWorkoutId(null)}
                   >
-                    Delete
+                    Cancel
                   </button>
-                </div>
-              </li>
-            ))
-          ) : (
-            <p>No workouts yet. Click the button below to add one!</p>
-          )}
+                </>
+              ) : (
+                <>
+                  <p>
+                    <strong>{workout.title}</strong> - {workout.date}
+                  </p>
+                  <div>
+                    <button
+                      className="edit-button"
+                      onClick={() => handleEditClick(workout)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteWorkout(workout._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </>
+              )}
+            </li>
+          ))}
         </ul>
       </section>
 

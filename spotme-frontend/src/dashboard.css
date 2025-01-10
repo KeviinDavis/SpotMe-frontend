@@ -3,20 +3,20 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Light background */
+    background-color: #f9f9f9;
   }
   
 /* Top Banner for All Pages */
 .dashboard-banner {
   display: flex;
-  justify-content: space-between; /* Align app name and buttons */
-  align-items: center; /* Center items vertically */
-  padding: 10px 20px; /* Add padding inside banner */
-  background-color: #d3d3d3; /* Light grey background */
-  position: sticky; /* Keep the banner at the top */
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px 20px;
+  background-color: #d3d3d3; 
+  position: sticky; 
   top: 0;
-  z-index: 1000; /* Ensure it stays on top */
-  box-sizing: border-box; /* Include padding in width/height */
+  z-index: 1000; 
+  box-sizing: border-box; 
 }
 
 /* App Name (SpotMe) */
@@ -28,8 +28,8 @@ body {
 /* Right Section (Buttons) */
 .banner-right {
   display: flex;
-  align-items: center; /* Align buttons and text vertically */
-  gap: 10px; /* Space between items */
+  align-items: center;
+  gap: 10px; 
 }
 
 /* Navigation Buttons */
@@ -43,31 +43,31 @@ body {
 }
 
 .nav-button:hover {
-  background-color: #f0f0f0; /* Slight hover effect */
+  background-color: #f0f0f0; 
 }
 
 /* Greeting (Hello, Guest!) */
 .greeting {
   font-size: 14px;
-  margin-right: 10px; /* Space between greeting and buttons */
+  margin-right: 10px; 
 }
 
 
 /* Make sure the banner is responsive */
 @media (max-width: 768px) {
   .dashboard-banner {
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    flex-wrap: wrap;
   }
 
   .banner-right {
-    justify-content: flex-end; /* Align buttons properly */
+    justify-content: flex-end;
   }
 }
 
 /* Add this rule for the main content */
 .dashboard-page {
-  padding-top: 80px; /* Adjust this to match the banner height */
-  box-sizing: border-box; /* Include padding in total dimensions */
+  padding-top: 80px;
+  box-sizing: border-box; 
 }
   
 
@@ -168,8 +168,8 @@ body {
 /* Center the buttons in the form */
 .form-buttons {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  gap: 20px; /* Space between buttons */
+  justify-content: center;
+  gap: 20px; 
   margin-top: 20px;
 }
 

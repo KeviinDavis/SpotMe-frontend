@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../login.css'; // Reuse the same CSS file for consistent styling
+import { AuthContext } from '../authcontext';
+import '../login.css';
 
 function Signup() {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+  const { signup } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,35 +16,18 @@ function Signup() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Sign-Up data:', formData); // Placeholder for API call
-    alert('Sign-Up successful! Redirecting to Login...');
-    navigate('/login'); // Redirect to the Login Page
+    await signup(formData);
+    navigate('/login'); // Redirect to login after signup
   };
 
   return (
     <div className="login-page">
-      {/* Top Banner */}
-      <header className="dashboard-banner">
-  <h1 className="app-name">SpotMe</h1>
-  <div className="banner-right">
-    <span className="greeting">Hello, Guest!</span>
-    <button onClick={() => navigate('/login')} className="nav-button">
-      Login
-    </button>
-    <button onClick={() => navigate('/signup')} className="nav-button">
-      Sign-Up
-    </button>
-  </div>
-</header>
-
-
-      {/* Sign-Up Form */}
       <div className="login-form-container">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit} className="login-form">
-          <label>USERNAME</label>
+          <label>Username</label>
           <input
             type="text"
             name="username"
@@ -50,7 +35,7 @@ function Signup() {
             onChange={handleChange}
             required
           />
-          <label>PASSWORD</label>
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -58,14 +43,11 @@ function Signup() {
             onChange={handleChange}
             required
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit">Submit</button>
         </form>
         <p>
           Already have an account?{' '}
-          <span
-            className="signup-link"
-            onClick={() => navigate('/login')}
-          >
+          <span onClick={() => navigate('/login')} className="signup-link">
             Log In Here
           </span>
         </p>

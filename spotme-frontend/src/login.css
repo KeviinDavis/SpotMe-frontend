@@ -8,17 +8,17 @@ body {
 /* Top Banner (Dashboard Style) */
 .dashboard-banner {
   display: flex;
-  justify-content: space-between; /* Align app name and buttons */
-  align-items: center; /* Center items vertically */
-  padding: 10px 20px; /* Add padding inside banner */
-  background-color: #d3d3d3; /* Light grey background */
-  position: fixed; /* Fix the banner to the top */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; 
+  background-color: #d3d3d3; 
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Make it span across the full width */
-  z-index: 1000; /* Ensure it stays on top */
-  box-sizing: border-box; /* Include padding in width/height */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the banner */
+  width: 100%; 
+  z-index: 1000; 
+  box-sizing: border-box; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -32,8 +32,8 @@ body {
 /* Right Section (Buttons) */
 .banner-right {
   display: flex;
-  align-items: center; /* Align buttons and text vertically */
-  gap: 10px; /* Add spacing between items */
+  align-items: center;
+  gap: 10px; 
 }
 
 /* Navigation Buttons */
@@ -56,7 +56,7 @@ body {
 /* Greeting (Hello, Guest!) */
 .greeting {
   font-size: 14px;
-  margin-right: 10px; /* Space between greeting and buttons */
+  margin-right: 10px;
   color: #555;
 }
 

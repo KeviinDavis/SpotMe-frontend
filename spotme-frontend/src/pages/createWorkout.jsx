@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../dashboard.css';
-import '../createWorkout.css';
+import { AuthContext } from '../authcontext'; // Import AuthContext
+// import '../dashboard.css'; // Use the same banner styling
+// import '../createWorkout.css'; // Create Workout specific styles
 
-
-function CreateWorkout({ addWorkout }) {
+function CreateWorkout() {
+  const { addWorkout } = useContext(AuthContext); // Access addWorkout from context
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
@@ -23,8 +24,9 @@ function CreateWorkout({ addWorkout }) {
       alert('Please fill in all fields.');
       return;
     }
-    addWorkout(formData);
-    navigate('/dashboard');
+    addWorkout(formData); // Add workout to the context
+    alert('Workout added successfully!');
+    navigate('/dashboard'); // Redirect to the dashboard
   };
 
   return (
@@ -38,42 +40,44 @@ function CreateWorkout({ addWorkout }) {
           </button>
         </div>
       </header>
-  
-      {/* Content Box */}
+
+      {/* Main Content */}
       <div className="create-workout-container">
         <h1>Create a New Workout</h1>
-  
+
         <form onSubmit={handleSubmit} className="create-workout-form">
-          <label>Workout Title</label>
+          <label htmlFor="title">Workout Title</label>
           <input
             type="text"
+            id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
             placeholder="E.g., Leg Day"
             required
           />
-  
-          <label>Focus</label>
+
+          <label htmlFor="focus">Focus</label>
           <input
             type="text"
+            id="focus"
             name="focus"
             value={formData.focus}
             onChange={handleChange}
             placeholder="E.g., Legs, Cardio"
             required
           />
-  
-          <label>Date</label>
+
+          <label htmlFor="date">Date</label>
           <input
-            type="text"
+            type="date"
+            id="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            placeholder="MM/DD/YY"
             required
           />
-  
+
           <div className="form-buttons">
             <button type="submit" className="save-button">
               Save Workout
