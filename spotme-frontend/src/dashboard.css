@@ -1,0 +1,203 @@
+
+/* General Page Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background */
+  }
+  
+/* Top Banner for All Pages */
+.dashboard-banner {
+  display: flex;
+  justify-content: space-between; /* Align app name and buttons */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Add padding inside banner */
+  background-color: #d3d3d3; /* Light grey background */
+  position: sticky; /* Keep the banner at the top */
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+/* App Name (SpotMe) */
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Right Section (Buttons) */
+.banner-right {
+  display: flex;
+  align-items: center; /* Align buttons and text vertically */
+  gap: 10px; /* Space between items */
+}
+
+/* Navigation Buttons */
+.nav-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0; /* Slight hover effect */
+}
+
+/* Greeting (Hello, Guest!) */
+.greeting {
+  font-size: 14px;
+  margin-right: 10px; /* Space between greeting and buttons */
+}
+
+
+/* Make sure the banner is responsive */
+@media (max-width: 768px) {
+  .dashboard-banner {
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+  }
+
+  .banner-right {
+    justify-content: flex-end; /* Align buttons properly */
+  }
+}
+
+/* Add this rule for the main content */
+.dashboard-page {
+  padding-top: 80px; /* Adjust this to match the banner height */
+  box-sizing: border-box; /* Include padding in total dimensions */
+}
+  
+
+  /* Profile Section */
+  .profile-section {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .profile-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .profile-section p {
+    font-size: 16px;
+  }
+  
+  /* Workout List Section */
+  .workout-list-section {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+  }
+  
+  .workout-list-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .workout-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .workout-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .workout-item:last-child {
+    border-bottom: none;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button:hover {
+    background-color: #a71d2a;
+  }
+  
+  /* Create Workout Button */
+  .create-workout-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .create-workout-button:hover {
+    background-color: #218838;
+  }
+  
+/* Center the buttons in the form */
+.form-buttons {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+
+.save-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #a71d2a;
+}

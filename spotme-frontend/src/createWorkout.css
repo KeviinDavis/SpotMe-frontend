@@ -1,0 +1,108 @@
+/* Page Layout */
+
+/* Create Workout Page Layout */
+.create-workout-page {
+  padding-top: 120px; /* Adjust this to match or exceed the banner height */
+  background-color: #f9f9f9; /* Optional: Light background */
+  min-height: 100vh; /* Ensure full page height is covered */
+  box-sizing: border-box; /* Include padding in dimensions */
+  display: flex;
+  justify-content: center; /* Center content vertically */
+  align-items: flex-start; /* Align content to the top, just under the banner */
+}
+
+/* Style for the content box */
+.create-workout-container {
+  background-color: white; /* White background */
+  padding: 30px; /* Space inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  margin: 0 auto; /* Center the box horizontally */
+  max-width: 600px; /* Set a fixed width */
+  text-align: center; /* Center-align content */
+}
+
+  .create-workout-page h1 {
+    text-align: center;
+  }
+  
+  /* Form Layout */
+  .create-workout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  /* Input Fields */
+  .create-workout-form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Buttons Layout */
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .save-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #a71d2a;
+  }
+  
+  /* Top Banner */
+  .dashboard-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+  }
+  
+  .app-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .banner-right .nav-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .banner-right .nav-button:hover {
+    background-color: #0056b3;
+  }
+  

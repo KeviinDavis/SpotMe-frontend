@@ -5,7 +5,6 @@ import '../login.css'; // Reuse the same CSS file for consistent styling
 function Signup() {
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: '',
   });
   const navigate = useNavigate();
@@ -25,18 +24,19 @@ function Signup() {
   return (
     <div className="login-page">
       {/* Top Banner */}
-      <header className="login-banner">
-        <h1 className="app-name">SpotMe</h1>
-        <div className="banner-right">
-          <span className="greeting">Hello, Guest!</span>
-          <button onClick={() => navigate('/login')} className="nav-button">
-            Login
-          </button>
-          <button onClick={() => navigate('/signup')} className="nav-button">
-            Sign-Up
-          </button>
-        </div>
-      </header>
+      <header className="dashboard-banner">
+  <h1 className="app-name">SpotMe</h1>
+  <div className="banner-right">
+    <span className="greeting">Hello, Guest!</span>
+    <button onClick={() => navigate('/login')} className="nav-button">
+      Login
+    </button>
+    <button onClick={() => navigate('/signup')} className="nav-button">
+      Sign-Up
+    </button>
+  </div>
+</header>
+
 
       {/* Sign-Up Form */}
       <div className="login-form-container">
@@ -47,14 +47,6 @@ function Signup() {
             type="text"
             name="username"
             value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <label>EMAIL</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
             onChange={handleChange}
             required
           />

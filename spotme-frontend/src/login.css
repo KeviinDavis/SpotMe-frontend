@@ -2,43 +2,50 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #e6e6e6;
+  background-color: #e6e6e6; 
 }
 
-/* Top Banner */
-.login-banner {
-  width: 100%;
-  background-color: #d3d3d3; /* Light gray color */
-  padding: 15px 20px;
+/* Top Banner (Dashboard Style) */
+.dashboard-banner {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between; /* Align app name and buttons */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Add padding inside banner */
+  background-color: #d3d3d3; /* Light grey background */
   position: fixed; /* Fix the banner to the top */
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensure it sits above other elements */
+  width: 100%; /* Make it span across the full width */
+  z-index: 1000; /* Ensure it stays on top */
+  box-sizing: border-box; /* Include padding in width/height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the banner */
 }
 
+
+/* App Name (SpotMe) */
 .app-name {
   font-size: 24px;
   font-weight: bold;
   color: black;
 }
 
+/* Right Section (Buttons) */
 .banner-right {
   display: flex;
-  align-items: center; 
-  gap: 10px; /* Add spacing between "Hello, Guest!" and the buttons */
+  align-items: center; /* Align buttons and text vertically */
+  gap: 10px; /* Add spacing between items */
 }
 
+/* Navigation Buttons */
 .nav-button {
   padding: 5px 10px;
   font-size: 14px;
   border: 1px solid black;
-  background-color: transparent;
+  border-radius: 5px;
+  background-color: white;
   cursor: pointer;
-  width: 100px; 
+  width: 100px;
+  text-align: center;
 }
 
 .nav-button:hover {
@@ -46,12 +53,12 @@ body {
   color: white;
 }
 
+/* Greeting (Hello, Guest!) */
 .greeting {
   font-size: 14px;
-  font-weight: bold;
-  color: #555; 
+  margin-right: 10px; /* Space between greeting and buttons */
+  color: #555;
 }
-
 
 /* Login Form Container */
 .login-page {
@@ -62,6 +69,7 @@ body {
   height: 100vh;
   padding-top: 80px; 
   box-sizing: border-box; 
+}
 
 .login-form-container {
   background-color: white;

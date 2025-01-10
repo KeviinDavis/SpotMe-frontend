@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../dashboard.css';
 import '../login.css';
 
 function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '' });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,10 +20,10 @@ function Login() {
 
   return (
     <div className="login-page">
-      {/* Top Banner */}
-      <header className="login-banner">
-  <h1 className="app-name">SpotMe</h1>
-  <div className="banner-right">
+     {/* Top Banner */}
+     <header className="dashboard-banner">
+    <h1 className="app-name">SpotMe</h1>
+    <div className="banner-right">
     <span className="greeting">Hello, Guest!</span>
     <button onClick={() => navigate('/login')} className="nav-button">
       Login
@@ -30,8 +31,8 @@ function Login() {
     <button onClick={() => navigate('/signup')} className="nav-button">
       Sign-Up
     </button>
-  </div>
-</header>
+    </div>
+   </header>
 
 
 
@@ -39,11 +40,11 @@ function Login() {
       <div className="login-form-container">
         <h2>Log-in</h2>
         <form onSubmit={handleSubmit} className="login-form">
-          <label>USER NAME/EMAIL</label>
+          <label>USERNAME</label>
           <input
-            type="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             required
           />
